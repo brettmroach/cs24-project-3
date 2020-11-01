@@ -12,7 +12,7 @@ File::File(string text) {   // Constructor
     filename = text;
     count = 1;
 }
-File::~File() {
+File::~File() { // Destructor
     filename = "";
     count = -1;
 }

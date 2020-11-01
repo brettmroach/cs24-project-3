@@ -20,11 +20,6 @@ public:
     Word(std::string text, std::string filename);
     ~Word(); // Destructor
 
-    // Copy Constructors
-    Word(const Word& w); // default
-    Word& operator=(const Word& w);
-    Word& operator+(const Word& w);
-
     // Accessors
     std::string get_word() const;
     int num_of_files() const;
