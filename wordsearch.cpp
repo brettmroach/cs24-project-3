@@ -1,3 +1,5 @@
+// Brett Roach      wordsearch.cpp
+// cs24 Project-3   Modified from give file "wordsearch.cpp"
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
@@ -38,14 +40,15 @@ int getdir (string dir, vector<string> &files)
   return 0;
 }
 
-int main(int argc, char* argv[])
-{
+//===================================================================
+//    MAIN
+//===================================================================
+
+int main(int argc, char* argv[]) {
   string dir; 
   vector<string> files = vector<string>();
-
   Bag container; // Bag object where you will store the words.
   
-
   // This part of the program checks if a directory containing the files has been
   // specified. If There is no directory specified, the program terminates.
   // Otherwise, it opens the sub-directory containg the data files using the function
@@ -77,7 +80,7 @@ int main(int argc, char* argv[])
       if(fin.eof()) {cout << "EOF " << files[i] << endl; break;}
       to_lower(word);
     // add code here to insert the word to the bag object "container" along with the filename
-
+      container.add_word(word, files[i]);
     }
     fin.close();
   }
@@ -93,7 +96,13 @@ int main(int argc, char* argv[])
       break;
     
     // add code here to search the bag object "container" and display the search results
-
+    Word w = container.word(input);
+    if (w.num_of_files() == -1) { // Check if input is in the database
+      cout << "Word not found in database" << endl;
+      continue;
+    } else {
+      w.print_word_data();
+    }
     
     
   }

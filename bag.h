@@ -4,7 +4,6 @@
 #define _BAG_H
 
 #include "word.h"
-#include "file.h"
 
 #include <string>
 
@@ -17,6 +16,14 @@ private:
 public:
     // Constructors
     Bag() {used = 0;}
+
+    // Accessor
+    int num_of_words() const;
+    Word word(const std::string& word) const;
+    /* Returns specific Word-class item in Bag conatainer */
+
+    void print_words() const;
+    /* Prints every word and its word count */
 
     // Modifier
     void add_word(const std::string& word,

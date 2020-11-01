@@ -11,7 +11,11 @@ using namespace std;
 File::File(string text) {   // Constructor
     filename = text;
     count = 1;
-};
+}
+File::~File() {
+    filename = "";
+    count = -1;
+}
 
 // Accessors
 string File::get_filename() const {

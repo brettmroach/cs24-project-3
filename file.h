@@ -13,6 +13,12 @@ public:
     // Constructors
     File() {filename = ""; count -1;}  // default
     File(std::string text);
+    ~File(); // Destructor
+
+    // Copy Constructors
+    File(const File& f);
+    File& operator=(const File& f);
+    File& operator+(const File& f);
 
     // Accessors
     std::string get_filename() const;
